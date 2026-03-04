@@ -198,7 +198,12 @@
             {mode==="login"&&<>
               <div style={{ fontSize:20, fontWeight:800, color:C.dark, marginBottom:4 }}>Willkommen zurück</div>
               <div style={{ fontSize:13, color:C.muted, marginBottom:22 }}>Melde dich mit deiner E-Mail an.</div>
-              <div style={{ marginBottom:14 }}><label style={lbl}>E-Mail</label><input type="email" style={inp} placeholder="deine@email.ch" value={email} onChange={e=>setEmail(e.target.value)} onKeyDown={e=>e.key==="Enter"&&handleLogin()} autoCapitalize="none"/></div>
+              <div style={{ marginBottom:14 }}>
+                <label style={lbl}>E-Mail</label>
+                <input type="email" style={{...inp,borderColor:email.length>0?(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)?"#86EFAC":"#FCA5A5"):C.border}} placeholder="deine@email.ch" value={email} onChange={e=>setEmail(e.target.value)} onKeyDown={e=>e.key==="Enter"&&handleLogin()} autoCapitalize="none"/>
+                {email.length>0&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)&&<div style={{ fontSize:11,color:C.red,marginTop:5,display:"flex",alignItems:"center",gap:4 }}><Icon.X size={11}/>Ungültige E-Mail-Adresse</div>}
+                {email.length>0&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)&&<div style={{ fontSize:11,color:C.green,marginTop:5,display:"flex",alignItems:"center",gap:4 }}><Icon.Check size={11}/>Gültige E-Mail-Adresse</div>}
+              </div>
               <div style={{ marginBottom:22 }}>
                 <label style={lbl}>Passwort</label>
                 <div style={{ position:"relative" }}>
@@ -219,7 +224,12 @@
               <div style={{ fontSize:13, color:C.muted, marginBottom:16 }}>Registriere dich als Mitglied von IKRE Thun.</div>
               <div style={{ marginBottom:14 }}><Alert type="warning">Dein Konto wird erst nach Admin-Freigabe aktiviert.</Alert></div>
               <div style={{ marginBottom:14 }}><label style={lbl}>Vollständiger Name *</label><input type="text" style={inp} placeholder="Vorname Nachname" value={name} onChange={e=>setName(e.target.value)}/></div>
-              <div style={{ marginBottom:14 }}><label style={lbl}>E-Mail *</label><input type="email" style={inp} placeholder="deine@email.ch" value={email} onChange={e=>setEmail(e.target.value)} autoCapitalize="none"/></div>
+              <div style={{ marginBottom:14 }}>
+                <label style={lbl}>E-Mail *</label>
+                <input type="email" style={{...inp,borderColor:email.length>0?(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)?"#86EFAC":"#FCA5A5"):C.border}} placeholder="deine@email.ch" value={email} onChange={e=>setEmail(e.target.value)} autoCapitalize="none"/>
+                {email.length>0&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)&&<div style={{ fontSize:11,color:C.red,marginTop:5,display:"flex",alignItems:"center",gap:4 }}><Icon.X size={11}/>Ungültige E-Mail-Adresse</div>}
+                {email.length>0&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)&&<div style={{ fontSize:11,color:C.green,marginTop:5,display:"flex",alignItems:"center",gap:4 }}><Icon.Check size={11}/>Gültige E-Mail-Adresse</div>}
+              </div>
               <div style={{ marginBottom:14 }}><label style={lbl}>Telefonnummer *</label><input type="tel" style={inp} placeholder="079 123 45 67" value={telefon} onChange={e=>setTelefon(e.target.value)}/></div>
               <div style={{ marginBottom:14 }}>
                 <label style={lbl}>Passwort * (mind. 6 Zeichen)</label>
