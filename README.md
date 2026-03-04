@@ -84,15 +84,4 @@ Dann im Browser öffnen: `http://localhost:8080`
 Die App wird automatisch über **GitHub Pages** bereitgestellt.  
 Jede Änderung an `main` ist sofort live.
 
-**Live-URL:** `https://DEIN-USERNAME.github.io/ikre-thun`
-
----
-
-## Admin-Zugang (Demo)
-
-```
-E-Mail:   admin@ikrethun.ch
-Passwort: admin123
-```
-
-> Den Admin-Zugangsdaten-Block aus dem Code entfernen bevor die Seite öffentlich geteilt wird.
+**Live-URL:** `https://enes031109.github.io/ikre-thun`
